@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Exercise 4 - Print Even Numbers</title>
+</head>
+<body>
+  <h2>Exercise 4: Print Even Numbers from 1 to 20</h2>
+  <p id="output"></p>
+
+  <script>
+    let result = "";
+    for (let i = 2; i <= 20; i += 2) {
+      result += i + ", ";
+    }
+    document.getElementById("output").innerText = result.slice(0, -2);
+  </script>
+</body>
+</html>

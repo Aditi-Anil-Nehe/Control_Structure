@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Exercise 1: Number Checker</title>
+  <style>
+    body { font-family: system-ui, Arial, sans-serif; padding: 24px; }
+    .card { max-width: 480px; padding: 16px; border: 1px solid #ddd; border-radius: 12px; }
+    label { display:block; margin-bottom: 8px; font-weight: 600; }
+    input { padding: 10px; width: 100%; box-sizing: border-box; margin-bottom: 12px; }
+    button { padding: 10px 14px; border: 0; border-radius: 8px; cursor: pointer; }
+    #result { margin-top: 12px; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Number Checker</h2>
+
+    <label for="num">Enter a number:</label>
+    <input id="num" type="text" placeholder="e.g., -3, 0, 42" />
+
+    <button id="checkBtn">Check</button>
+    <p id="result"></p>
+  </div>
+
+  <script>
+    const input = document.getElementById('num');
+    const btn = document.getElementById('checkBtn');
+    const result = document.getElementById('result');
+
+    btn.addEventListener('click', () => {
+      const value = input.value.trim();
+      const n = Number(value);
+
+      if (value === '' || Number.isNaN(n)) {
+        result.textContent = 'Please enter a valid number.';
+        return;
+      }
+
+      if (n > 0) {
+        result.textContent = 'The number is positive.';
+      } else if (n < 0) {
+        result.textContent = 'The number is negative.';
+      } else {
+        result.textContent = 'The number is zero.';
+      }
+    });
+
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') btn.click();
+    });
+  </script>
+</body>
+</html>
